@@ -24,3 +24,10 @@ resource "google_compute_instance" "vm_victor" {
     }
   }
 }
+
+# --- ADICIONE ESTE BLOCO ABAIXO ---
+# Esse código vai fazer o IP aparecer em verde no seu terminal
+output "ip_externo_servidor" {
+  value       = google_compute_instance.vm_victor.network_interface[0].access_config[0].nat_ip
+  description = "Use este IP no campo 'Servidor' do Power BI"
+}
